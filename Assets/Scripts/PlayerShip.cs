@@ -42,4 +42,12 @@ public class PlayerShip : MonoBehaviour
         _rb.MoveRotation(_rb.rotation * turnOffset); ;
     }
 
- }
+    public void Kill()
+    {
+        Debug.Log("Player has been killed!");
+        this.gameObject.SetActive(false);
+    }
+
+
+
+}

@@ -16,5 +16,4 @@ public class CameraFollow : MonoBehaviour
     {
         this.transform.position = _objectToFollow.position + _objectOffset;
     }
-    
 }
