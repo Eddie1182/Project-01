@@ -9,6 +9,9 @@ public class PlayerShip : MonoBehaviour
     [SerializeField] float _moveSpeed = 0.25f;
     [SerializeField] float _turnSpeed = 1f;
 
+    [SerializeField] ParticleSystem forwardEngines = null;
+    [SerializeField] ParticleSystem backwardEngines = null;
+
     Rigidbody _rb = null;
 
     private void Awake()
@@ -31,6 +34,28 @@ public class PlayerShip : MonoBehaviour
         Vector3 moveDirection = transform.forward * moveAmountThisFrame;
         //move the rigidbody
         _rb.AddForce(moveDirection);
+
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            forwardEngines.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            forwardEngines.Stop();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            backwardEngines.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            backwardEngines.Stop();
+        }
+
     }
 
     private void turnShip()
